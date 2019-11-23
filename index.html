@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-力扣-每日温度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/23/%E5%8A%9B%E6%89%A3-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">力扣-每日温度</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/23/%E5%8A%9B%E6%89%A3-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" class="archive-article-date">
+  	<time datetime="2019-11-23T02:58:18.749Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。<br>例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。<br>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p><img src="/images/360%E6%88%AA%E5%9B%BE17420921879595.png" alt=""></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>将T列表从后向前遍历，较为方便，因为根据输出要求，看一个位置上的数字是多少，是去找到，其后面且最近的比它大的数的序号与其自身序号之差。从后向前遍历的方法，可以使我们方便对一个数和它后面的数比较。<br>且这种和最近的数的比较，一般用栈这种结构，后进先出，这样才能保证栈顶的数据是和目前的数最近的那个数。<br>T中最后一个数，后面没别的温度，因此对应输出为0，其序号7入栈。<br>后续，序号为6的温度比栈顶温度高，则stack.pop(),  此时栈又为空，序号6入栈，同样对应输出为0。<br>若6的温度比栈顶高，stack.pop(),直到找到栈顶比其温度高的序号（即此时栈不为空），序号6入栈，对应输出为栈顶和栈顶下一个数的序号之差。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/23/%E5%8A%9B%E6%89%A3-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
