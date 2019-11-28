@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>力扣计算各个位数不同的数字个数 | Hexo</title>
+  <title>力扣-数组的相对排序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10n 。 示例: 输入: 2输出: 91解释: 答案应为除去 11,22,33,44,55,66,77,88,99 外，在 [0,100) 区间内的所有数字。">
+  <meta name="description" content="题目给你两个数组，arr1 和 arr2， arr2 中的元素各不相同arr2 中的每个元素都出现在 arr1 中对 arr1 中的元素进行排序，使 arr1 中项的相对顺序和 arr2 中的相对顺序相同。未在 arr2 中出现过的元素需要按照升序放在 arr1 的末尾。 示例： 输入：arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]输出：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣计算各个位数不同的数字个数">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;%E5%8A%9B%E6%89%A3%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0&#x2F;index.html">
+<meta property="og:title" content="力扣-数组的相对排序">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;%E5%8A%9B%E6%89%A3-%E6%95%B0%E7%BB%84%E7%9A%84%E7%9B%B8%E5%AF%B9%E6%8E%92%E5%BA%8F&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="题目给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10n 。 示例: 输入: 2输出: 91解释: 答案应为除去 11,22,33,44,55,66,77,88,99 外，在 [0,100) 区间内的所有数字。">
+<meta property="og:description" content="题目给你两个数组，arr1 和 arr2， arr2 中的元素各不相同arr2 中的每个元素都出现在 arr1 中对 arr1 中的元素进行排序，使 arr1 中项的相对顺序和 arr2 中的相对顺序相同。未在 arr2 中出现过的元素需要按照升序放在 arr1 的末尾。 示例： 输入：arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]输出：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-25T03:03:25.261Z">
+<meta property="og:updated_time" content="2019-11-28T03:23:40.075Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,14 +152,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-力扣计算各个位数不同的数字个数" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-力扣-数组的相对排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      力扣计算各个位数不同的数字个数
+      力扣-数组的相对排序
     </h1>
   
 
@@ -170,21 +170,34 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/25/%E5%8A%9B%E6%89%A3%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2019-11-25T02:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+<a href="/2019/11/28/%E5%8A%9B%E6%89%A3-%E6%95%B0%E7%BB%84%E7%9A%84%E7%9B%B8%E5%AF%B9%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2019-11-28T03:21:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10n 。</p>
-<p>示例:</p>
-<p>输入: 2<br>输出: 91<br>解释: 答案应为除去 11,22,33,44,55,66,77,88,99 外，在 [0,100) 区间内的所有数字。</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你两个数组，arr1 和 arr2，</p>
+<p>arr2 中的元素各不相同<br>arr2 中的每个元素都出现在 arr1 中<br>对 arr1 中的元素进行排序，使 arr1 中项的相对顺序和 arr2 中的相对顺序相同。未在 arr2 中出现过的元素需要按照升序放在 arr1 的末尾。</p>
+<p>示例：</p>
+<p>输入：arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]<br>输出：[2,2,2,1,4,3,3,9,6,7,19]</p>
+<p>提示：</p>
+<p>arr1.length, arr2.length &lt;= 1000<br>0 &lt;= arr1[i], arr2[i] &lt;= 1000<br>arr2 中的元素 arr2[i] 各不相同<br>arr2 中的每个元素 arr2[i] 都出现在 arr1 中</p>
+<hr>
 <a id="more"></a>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>class Solution:<br>    def countNumbersWithUniqueDigits(self, n: int) -&gt; int:<br>        #排列算法<br>        num=9<br>        sum=1<br>        j=9<br>        if n == 0:<br>            pass<br>        else:<br>            for i in range(n):<br>                sum = sum +num<br>                num*=j<br>                j-=1<br>        return sum</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题比较简单，我却错了好多次。。。。<br>就是简单的数学问题<br>在编程前，要理清思路，分出有哪几种情况。这题中就是，数字以0开头（及位数小于n），位数等于n，以及n=0的情况。<br>这道题，要求给出总数，而不是去列出每一个数，所以不需要用遍历的方法。<br>程序中赋初值有一些小技巧，如sum=1，则在n=0时，直接pass即可；num和j的数就可以考虑用n=1时的值为初值。</p>
+<h2 id="我的代码"><a href="#我的代码" class="headerlink" title="我的代码"></a>我的代码</h2><p>‘’’<br>class Solution:<br>    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -&gt; List[int]:<br>        l1=len(arr1)<br>        l2=len(arr2)<br>        temp1=[]#保存都有的数<br>        temp2=[]#保存没有的数<br>        templist=[]<br>        for i in range(l2):<br>            for j in range(l1):<br>                if arr1[j]==arr2[i]:<br>                    temp1.append(arr1[j])<br>                    templist.append(j)<br>        for i in range(l1):<br>            if i not in templist:<br>                temp2.append(arr1[i])<br>        temp2.sort()<br>        arr1=temp1+temp2<br>        return arr1<br>‘’’</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>将arr1分成两部分，一部分temp1存储arr2有的元素，另一部分temp2存储arr1中arr2之外的元素，之后将temp2中数排序，再将temp1和temp2连接到一块，得到结果。<br>templist用于记录放入temp1中的arr1的序号，未放入的序号对应的数，需要放入temp2中。也可以不使用templist，而将arr1中有，而temp1中没有的元素，加入temp2中。<br>时间复杂度为O(n^2),因为两个循环嵌套了。（可能不对，对复杂度分析还不是很懂）</p>
+<hr>
+<h1 id="力扣上计数排序方法"><a href="#力扣上计数排序方法" class="headerlink" title="力扣上计数排序方法"></a>力扣上计数排序方法</h1><blockquote>
+<blockquote>
+<blockquote>
+<p>[计数排序]（<a href="https://leetcode-cn.com/problems/relative-sort-array/solution/ji-shu-pai-xu-fei-chang-jian-dan-gao-ding-by-rippl/）" target="_blank" rel="noopener">https://leetcode-cn.com/problems/relative-sort-array/solution/ji-shu-pai-xu-fei-chang-jian-dan-gao-ding-by-rippl/）</a></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="思路总结"><a href="#思路总结" class="headerlink" title="思路总结"></a>思路总结</h2><p>用空间换时间，将复杂度降到O(N)。<br>生成arr数组，空间足够大，可以将arr1中元素的所有范围覆盖。提示中表面所有元素都是在【0-1000】之间的，所以生成一个长度为1001的数组arr。arr数组的特点是，其序列（或下标）代表arr1中具体元素的值，而arr对应下标的元素则是记录arr1中该同样大小的元素出现了多少次。<br>遍历arr1，完成在arr中对arr1出现元素和对应次数的记录。<br>遍历arr2，完成arr中同样有的元素的输出，注意保证输出的次数的在arr1中相同。<br>遍历arr，完成剩余元素的顺序输出，因为arr本身就是有顺序的，因此不用再排序了。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>‘’‘<br>class Solution:<br>    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -&gt; List[int]:<br>        arr=[0]*1001<br>        ans=[]<br>        for i in range(len(arr1)):<br>            arr[arr1[i]]+=1<br>        for i in range(len(arr2)):<br>            while arr[arr2[i]]&gt;0:<br>                ans.append(arr2[i])<br>                arr[arr2[i]]-=1<br>        for i in range(len(arr)):<br>            while arr[i]&gt;0:<br>                ans.append(i)<br>                arr[i]-=1<br>        return ans<br>’‘’</p>
 
       
 
@@ -264,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/25/%E5%8A%9B%E6%89%A3%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/28/%E5%8A%9B%E6%89%A3-%E6%95%B0%E7%BB%84%E7%9A%84%E7%9B%B8%E5%AF%B9%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +291,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/28/%E5%8A%9B%E6%89%A3-%E6%95%B0%E7%BB%84%E7%9A%84%E7%9B%B8%E5%AF%B9%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          力扣-数组的相对排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/23/%E5%8A%9B%E6%89%A3-%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">力扣-下一个更大元素</div>
+    <a href="/2019/11/25/%E5%8A%9B%E6%89%A3%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">力扣计算各个位数不同的数字个数</div>
       <i class="icon-circle-right"></i>
     </a>
   
