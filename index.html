@@ -151,6 +151,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-力扣-3的幂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/05/%E5%8A%9B%E6%89%A3-3%E7%9A%84%E5%B9%82/">力扣-3的幂</a>
+    </h1>
+  
+
+        
+        
+<a href="/2019/12/05/%E5%8A%9B%E6%89%A3-3%E7%9A%84%E5%B9%82/" class="archive-article-date">
+  	<time datetime="2019-12-05T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数，写一个函数来判断它是否是3的幂次方</p>
+<p>示例 1:<br>输入: 27<br>输出: true</p>
+<p>示例 2:<br>输入: 0<br>输出: false</p>
+<h2 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isPowerOfThree(self, n: int) -&gt; bool:</span><br><span class="line">        count1=0</span><br><span class="line">        count2=0</span><br><span class="line">        while n&gt;0:</span><br><span class="line">            yushu=n%3</span><br><span class="line">            n=n//3</span><br><span class="line">            if yushu==1:</span><br><span class="line">                count1+=1</span><br><span class="line">            if yushu==2:</span><br><span class="line">                count2+=1    </span><br><span class="line">        if count1==1 and count2==0:</span><br><span class="line">            return True</span><br><span class="line">        else:</span><br><span class="line">            return False</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>&emsp;我最初想法是利用十进制转各种进制的方法（除n取余法），符合题目要求的数在转化后应符合的条件是：在整除的商为0之前，不断的整除3并记录余数，最后的余数是由0、1、2组成的，且只有一个1，没有2，剩余的全是0</p>
+<h2 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isPowerOfThree(self, n: int) -&gt; bool:</span><br><span class="line">        if n&lt;3:</span><br><span class="line">            if n==1:</span><br><span class="line">                return True</span><br><span class="line">            else:</span><br><span class="line">                return False</span><br><span class="line">        elif n%3==0:</span><br><span class="line">            return self.isPowerOfThree(n//3)</span><br><span class="line">        else:</span><br><span class="line">            return False</span><br></pre></td></tr></table></figure>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>&emsp;看到相关解答上说可以使用递归方法，我也思考了一下。<br>问题分类：</p>
+<ul>
+<li>当n&lt;3,只有当n=1时，是符合的</li>
+<li>当n&gt;=3，如果n能整除3时，就再次调用该函数，去判断新的n=n/3；如果不能整除，则表明是不符合的数。</li>
+</ul>
+<h2 id="代码3"><a href="#代码3" class="headerlink" title="代码3"></a>代码3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isPowerOfThree(self, n: int) -&gt; bool:</span><br><span class="line">        if n&gt;0 and 3 ** round(math.log(n, 3)) == n:</span><br><span class="line">            return True</span><br><span class="line">        else:</span><br><span class="line">            return False</span><br></pre></td></tr></table></figure>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>&emsp;看到官方解答中有直接用数学的对数方法解题的。round是四舍五入的取整，浮点数计算后取整，再反过来作为3的指数，如果还原后相等，则说明取对数得到的数是整数，即n是3的幂</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/05/%E5%8A%9B%E6%89%A3-3%E7%9A%84%E5%B9%82/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-力扣-数组的相对排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
